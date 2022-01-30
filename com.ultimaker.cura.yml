@@ -177,7 +177,7 @@ modules:
       - type: git
         url: https://github.com/ultimaker/libArcus.git
         commit: 2066a9ddccece8f970902bb5e33147d674627edd
-        tag: 4.13.0 
+        tag: 4.13.1
       - type: patch
         path: patch/libarcus-python-binindg-install.patch
 
@@ -205,7 +205,7 @@ modules:
       - type: git
         url: https://github.com/ultimaker/libSavitar.git
         commit: 68a8868e0b30883b461c0dde77f6e85ce0a4d2ef
-        tag: 4.13.0
+        tag: 4.13.1
       - type: patch
         path: patch/libsavitar-python-install.patch
 
@@ -222,13 +222,13 @@ modules:
     config-opts:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
       - -DCMAKE_CXX_STANDARD=17
-      - -DCURA_ENGINE_VERSION=4.13.0
+      - -DCURA_ENGINE_VERSION=4.13.1
       - -DENABLE_MORE_COMPILER_OPTIMIZATION_FLAGS=ON
     sources:
       - type: git
         url: https://github.com/ultimaker/CuraEngine
-        commit: 0e79559492a9e3e631c28624b73a888b3297f174
-        tag: 4.13.0
+        commit: ebb53015413c568ccf20c050ef0d68c3072da9f9
+        tag: 4.13.1
 
 
   - name: uranium
@@ -237,7 +237,7 @@ modules:
       - type: git
         url: https://github.com/ultimaker/Uranium
         commit: b1d9219a7272140a2021e7339901897c7df927d5
-        tag: 4.13.0
+        tag: 4.13.1
 
   - name: fdm_materials
     buildsystem: cmake-ninja
@@ -250,7 +250,7 @@ modules:
   - name: cura
     buildsystem: cmake-ninja
     config-opts:
-      - -DCURA_VERSION=4.13.0
+      - -DCURA_VERSION=4.13.1
       - -DCURA_BUILDTYPE=Release
       - -DCURA_CLOUD_API_ROOT=https://api.ultimaker.com
       - -DCURA_CLOUD_API_VERSION=1
@@ -264,8 +264,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/ultimaker/Cura
-        commit: c328f3619dae3ad37fb1decccf1013afa18b410c
-        tag: 4.13.0
+        commit: 97d20bff1b1a2cc2c13f11ec35997c2fa2f61063
+        tag: 4.13.1
       - type: patch
         path: patch/cura-fix-appdata.patch
 
@@ -275,5 +275,5 @@ modules:
     sources:
       - type: git
         url: https://github.com/ultimaker/cura-binary-data
-        commit: 5e27a961715efc84db16692cf1299d42988f816b
-        tag: 4.13.0
+        commit: 38fa4118ea1ed88aed23a47bda906ad31cd65c21
+        tag: 4.13.1

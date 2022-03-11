@@ -4,20 +4,6 @@
     "build-commands": [],
     "modules": [
         {
-            "name": "python3-wheel",
-            "buildsystem": "simple",
-            "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"wheel==0.37.0\" --no-build-isolation"
-            ],
-            "sources": [
-                {
-                    "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/04/80/cad93b40262f5d09f6de82adbee452fd43cdff60830b56a74c5930f7e277/wheel-0.37.0-py2.py3-none-any.whl",
-                    "sha256": "21014b2bd93c6d0034b6ba5d35e4eb284340e09d63c59aef6fc14b0f346146fd"
-                }
-            ]
-        },
-        {
             "name": "python3-pybind11",
             "buildsystem": "simple",
             "build-commands": [

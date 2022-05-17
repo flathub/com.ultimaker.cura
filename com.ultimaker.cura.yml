@@ -144,13 +144,14 @@ modules:
       - -DBUILD_STATIC=ON
       - -DBUILD_PYTHON=ON
       - -DBUILD_EXAMPLES=OFF
+      - -DPython_VERSION=3.9.9
+      - -DPython_SITELIB_LOCAL=/app/lib/python3.9/site-packages
+    builddir: true
     sources:
       - type: git
         url: https://github.com/ultimaker/libArcus.git
-        commit: 2066a9ddccece8f970902bb5e33147d674627edd
-        tag: 4.13.1
-      - type: patch
-        path: patch/libarcus-python-binindg-install.patch
+        commit: 8ebb24c32302271097080771240620d16147b9c2
+        tag: 5.0
 
   - name: pynest2d
     buildsystem: cmake-ninja

@@ -69,8 +69,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/stevengj/nlopt.git
-        commit: 41967f1981d82d8495c0b27151a126bc35ae0d96
-        tag: v2.6.2
+        commit: 10869df05bbc801e43c90a52fd6975b7bda2ecb8
+        tag: v2.7.0
 
 
   - name: boostheaders

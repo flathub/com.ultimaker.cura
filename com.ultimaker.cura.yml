@@ -48,15 +48,6 @@ modules:
       url: https://github.com/xianyi/OpenBLAS/archive/v0.3.13.tar.gz
       sha256: 79197543b17cc314b7e43f7a33148c308b0807cd6381ee77f77e15acf3e6459e
 
-  - name: geos
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DGEOS_ENABLE_TESTS=OFF
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-    sources:
-      - type: archive
-        url: https://download.osgeo.org/geos/geos-3.7.3.tar.bz2
-        sha256: 02035ae4e0ad711fa5a5556d7712530029edacac364b5b9c3ade0ded865fca7e
 
 
   # Based on https://github.com/Ultimaker/cura-build-environment/blob/4.12/projects/base_requirements.txt

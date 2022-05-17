@@ -1,7 +1,9 @@
 app-id: com.ultimaker.cura
 runtime: org.kde.Platform
-runtime-version: '5.15-21.08'
+runtime-version: 6.2
 sdk: org.kde.Sdk
+base: com.riverbankcomputing.PyQt.BaseApp
+base-version: 6.2
 finish-args:
   - --share=ipc
   - --socket=x11
@@ -14,6 +16,11 @@ finish-args:
   # To access user files
   - --filesystem=home
 command: cura
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
+build-options:
+  env:
+    - BASEAPP_REMOVE_WEBENGINE=1
 cleanup:
   - /include
   - /lib/cmake
@@ -63,28 +70,6 @@ modules:
       - type: archive
         url: https://github.com/protocolbuffers/protobuf/archive/refs/tags/v3.15.7.tar.gz
         sha256: efdd6b932a2c0a88a90c4c80f88e4b2e1bf031e7514dbb5a5db5d0bf4f295504
-
-  - name: sip
-    buildsystem: simple
-    build-commands:
-      - python3 configure.py --bindir=/app/bin --destdir=/app/lib/python3.9/site-packages --incdir=/app/include --pyidir=/app/lib/python3.9/site-packages --sipdir=/app/share/sip
-      - make -j${FLATPAK_BUILDER_N_JOBS}
-      - make install
-    sources:
-      - type: archive
-        url: https://www.riverbankcomputing.com/static/Downloads/sip/4.19.25/sip-4.19.25.tar.gz
-        sha256: b39d93e937647807bac23579edbff25fe46d16213f708370072574ab1f1b4211
-
-  - name: pyqt
-    buildsystem: simple
-    build-commands:
-      - python3 configure.py --no-designer-plugin --no-tools --no-qml-plugin --sysroot /app --sip /app/bin/sip --sip-incdir /app/include --confirm-license --assume-shared --disable QtSensors --disable QtSerialPort --disable QtMultimedia --disable QtWebChannel --disable QtLocation -verbose QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.9' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.9'
-      - make -j${FLATPAK_BUILDER_N_JOBS}
-      - make install DESTDIR=/app
-    sources:
-      - type: archive
-        url: https://files.pythonhosted.org/packages/28/6c/640e3f5c734c296a7193079a86842a789edb7988dca39eab44579088a1d1/PyQt5-5.15.2.tar.gz
-        sha256: 372b08dc9321d1201e4690182697c5e7ffb2e0770e6b4a45519025134b12e4fc
 
   - name: nlopt
     buildsystem: cmake-ninja

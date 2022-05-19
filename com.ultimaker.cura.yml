@@ -174,13 +174,14 @@ modules:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
       - -DCMAKE_CXX_STANDARD=17
       - -DBUILD_STATIC=ON
+      - -DPython_VERSION=3.9.9
+      - -DPython_SITELIB_LOCAL=/app/lib/python3.9/site-packages
+    builddir: true
     sources:
-      - type: git
-        url: https://github.com/ultimaker/libSavitar.git
-        commit: 68a8868e0b30883b461c0dde77f6e85ce0a4d2ef
-        tag: 4.13.1
-      - type: patch
-        path: patch/libsavitar-python-install.patch
+    - type: git
+      url: https://github.com/ultimaker/libSavitar.git
+      commit: c66d04c00ecb9f014e0bd696732518781276bd3e
+      tag: 5.0.0
 
   - name: libCharon
     buildsystem: cmake-ninja

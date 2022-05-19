@@ -92,21 +92,6 @@ modules:
         sha256: 54c430466bcbe745fc85b757c02a63868d26022891cc1b98fb9862e9e20c79fb
         dest-filename: CMakeLists.txt
 
-  - name: libnest2d
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-      - -DCMAKE_CXX_STANDARD=17
-    sources:
-      - type: git
-        url: https://github.com/Ultimaker/libnest2d.git
-        commit: 031e4e61218edd092fbc54fbc6df145287b628ba
-      - type: file
-        url: https://raw.githubusercontent.com/Ultimaker/cura-build-environment/4.12/projects/libnest2d_find_clipper.cmake
-        sha256: 558d26c1071a4cb31c09e618553a3f98de7b782d779989db0582ab5c854a6d5f
-        dest-filename: FindClipper.cmake
-        dest: cmake_modules/
-
   - name: openctm
     buildsystem: simple
     build-commands:
@@ -152,6 +137,22 @@ modules:
         url: https://github.com/ultimaker/libArcus.git
         commit: 8ebb24c32302271097080771240620d16147b9c2
         tag: 5.0
+
+  - name: libnest2d
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_CXX_STANDARD=17
+    sources:
+      - type: git
+        url: https://github.com/Ultimaker/libnest2d.git
+        commit: c9859161f471fbb3d2b611e550abca7561870d07
+        tag: 5.0.0
+      - type: file
+        url: https://raw.githubusercontent.com/Ultimaker/cura-build-environment/4.12/projects/libnest2d_find_clipper.cmake
+        sha256: 558d26c1071a4cb31c09e618553a3f98de7b782d779989db0582ab5c854a6d5f
+        dest-filename: Findclipper.cmake
+        dest: cmake_modules/
 
   - name: pynest2d
     buildsystem: cmake-ninja

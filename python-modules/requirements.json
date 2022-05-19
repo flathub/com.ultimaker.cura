@@ -4,26 +4,350 @@
     "build-commands": [],
     "modules": [
         {
-            "name": "python3-cx-Freeze",
+            "name": "python3-pybind11",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"cx-Freeze==6.5.3\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pybind11==2.6.2\" --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/c9/ef/2d25573afff88e000c84e4e32a594173bb41a80ca38b22d5ce266084affa/cx_Freeze-6.5.3.tar.gz",
-                    "sha256": "e0d03cabcdf9b9c21354807ed9f06fa9481a8fd5a0838968a830f01a70820ff1"
+                    "url": "https://files.pythonhosted.org/packages/8d/43/7339dbabbc2793718d59703aace4166f53c29ee1c202f6ff5bf8a26c4d91/pybind11-2.6.2-py2.py3-none-any.whl",
+                    "sha256": "2d8aebe1709bc367e34e3b23d8eccbf3f387ee9d5640548c6260d33b59f02405"
+                }
+            ]
+        },
+        {
+            "name": "python3-more-itertools",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"more-itertools==8.9.0\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/5d/64/8a2bce13c6a98d3625406ff6b7af9c4891fe3bd9b4bbab8299b387c96276/more_itertools-8.9.0-py3-none-any.whl",
+                    "sha256": "70401259e46e216056367a0a6034ee3d3f95e0bf59d3aa6a4eb77837171ed996"
+                }
+            ]
+        },
+        {
+            "name": "python3-wcwidth",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"wcwidth==0.2.5\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/59/7c/e39aca596badaf1b78e8f547c807b04dae603a433d3e7a7e04d67f2ef3e5/wcwidth-0.2.5-py2.py3-none-any.whl",
+                    "sha256": "beb4802a9cebb9144e99086eff703a642a13d6a0052920003a230f3294bbe784"
+                }
+            ]
+        },
+        {
+            "name": "python3-pluggy",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pluggy==0.13.1\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/a0/28/85c7aa31b80d150b772fbe4a229487bc6644da9ccb7e427dd8cc60cb8a62/pluggy-0.13.1-py2.py3-none-any.whl",
+                    "sha256": "966c145cd83c96502c3c3868f50408687b38434af77734af1e9ca461a4081d2d"
+                }
+            ]
+        },
+        {
+            "name": "python3-attrs",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"attrs==21.2.0\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/20/a9/ba6f1cd1a1517ff022b35acd6a7e4246371dfab08b8e42b829b6d07913cc/attrs-21.2.0-py2.py3-none-any.whl",
+                    "sha256": "149e90d6d8ac20db7a955ad60cf0e6881a3f20d37096140088356da6c716b0b1"
+                }
+            ]
+        },
+        {
+            "name": "python3-py",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"py==1.10.0\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/67/32/6fe01cfc3d1a27c92fdbcdfc3f67856da8cbadf0dd9f2e18055202b2dc62/py-1.10.0-py2.py3-none-any.whl",
+                    "sha256": "3b80836aa6d1feeaa108e046da6423ab8f6ceda6468545ae8d02d9d58d18818a"
+                }
+            ]
+        },
+        {
+            "name": "python3-atomicwrites",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"atomicwrites==1.4.0\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/2c/a0/da5f49008ec6e9a658dbf5d7310a4debd397bce0b4db03cf8a410066bb87/atomicwrites-1.4.0-py2.py3-none-any.whl",
+                    "sha256": "6d1784dea7c0c8d4a5172b6c620f40b6e4cbfdf96d783691f2e1302a7b88e197"
+                }
+            ]
+        },
+        {
+            "name": "python3-colorama",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"colorama==0.4.4\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/44/98/5b86278fbbf250d239ae0ecb724f8572af1c91f4a11edf4d36a206189440/colorama-0.4.4-py2.py3-none-any.whl",
+                    "sha256": "9f47eda37229f68eee03b24b9748937c7dc3868f906e8ba69fbcbdd3bc5dc3e2"
+                }
+            ]
+        },
+        {
+            "name": "python3-pyparsing",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pyparsing==2.4.2\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/11/fa/0160cd525c62d7abd076a070ff02b2b94de589f1a9789774f17d7c54058e/pyparsing-2.4.2-py2.py3-none-any.whl",
+                    "sha256": "d9338df12903bbf5d65a0e4e87c2161968b10d2e489652bb47001d82a9b028b4"
+                }
+            ]
+        },
+        {
+            "name": "python3-pytest-benchmark",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-benchmark==3.2.2\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/05/8e/8de486cbd03baba4deef4142bd643a3e7bbe954a784dc1bb17142572d127/packaging-21.3-py3-none-any.whl",
+                    "sha256": "ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522"
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/34/7c/15499080be7cbb30579630238c6472c7c3529deca03bfab7bdead6419cd1/importlib_metadata-3.7.2-py3-none-any.whl",
-                    "sha256": "407d13f55dc6f2a844e62325d18ad7019a436c4bfcaee34cda35f2be6e7c3e34"
+                    "url": "https://files.pythonhosted.org/packages/9b/dd/b3c12c6d707058fa947864b67f0c4e0c39ef8610988d7baea9578f3c48f3/iniconfig-1.1.1-py2.py3-none-any.whl",
+                    "sha256": "011e24c64b7f47f6ebd835bb12a743f2fbe9a26d4cecaa7f53bc4f35ee9da8b3"
                 },
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/92/d9/89f433969fb8dc5b9cbdd4b4deb587720ec1aeb59a020cf15002b9593eef/zipp-3.5.0-py3-none-any.whl",
-                    "sha256": "957cfda87797e389580cb8b9e3870841ca991e2125350677b2ca83a0e99390a3"
+                    "url": "https://files.pythonhosted.org/packages/97/75/10a9ebee3fd790d20926a90a2547f0bf78f371b2f13aa822c759680ca7b9/tomli-2.0.1-py3-none-any.whl",
+                    "sha256": "939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/fb/d0/bae533985f2338c5d02184b4a7083b819f6b3fc101da792e0d96e6e5299d/pytest-7.1.2-py3-none-any.whl",
+                    "sha256": "13d0e3ccfc2b6e26be000cb6568c832ba67ba32e719443bfe725814d3c42433c"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/d9/41/d9cfb4410589805cd787f8a82cddd13142d9bf7449d12adf2d05a4a7d633/pyparsing-3.0.8-py3-none-any.whl",
+                    "sha256": "ef7b523f6356f763771559412c0d7134753f037822dad1b16945b7b846f7ad06"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/f6/f0/10642828a8dfb741e5f3fbaac830550a518a775c7fff6f04a007259b0548/py-1.11.0-py2.py3-none-any.whl",
+                    "sha256": "607c53218732647dff4acdfcd50cb62615cedf612e72d1724fb1a0cc6405b378"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/e6/ba/77120e44cbe9719152415b97d5bfb29f4053ee987d6cb63f55ce7d50fadc/py-cpuinfo-8.0.0.tar.gz",
+                    "sha256": "5f269be0e08e33fd959de96b34cd4aeeeacac014dd8305f70eb28d06de2345c5"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/ab/0f/8488bebc18924bbf5ed9eff3d3cecd0287446c88962f10e99fa727a3d2d7/pytest_benchmark-3.2.2-py2.py3-none-any.whl",
+                    "sha256": "ab851115ce022639173b9497d4a4183a1d8fe9cdcf8fab9d8a57607008aedd3d"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/be/be/7abce643bfdf8ca01c48afa2ddf8308c2308b0c3b239a44e57d020afa0ef/attrs-21.4.0-py2.py3-none-any.whl",
+                    "sha256": "2d27e3784d7a565d36ab851fe94887c5eccd6a463168875832a1be79c82828b4"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/9e/01/f38e2ff29715251cf25532b9082a1589ab7e4f571ced434f98d0139336dc/pluggy-1.0.0-py2.py3-none-any.whl",
+                    "sha256": "74134bbf457f031a36d68416e1509f34bd5ccc019f0bcc952c7b909d06b37bd3"
+                }
+            ]
+        },
+        {
+            "name": "python3-pytest-cov",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-cov==2.8.1\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/38/df/d5e67851e83948def768d7fb1a0fd373665b20f56ff63ed220c6cd16cb11/coverage-5.5.tar.gz",
+                    "sha256": "ebe78fe9a0e874362175b02371bdfbee64d8edc42a044253ddf4ee7d3c15212c"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/89/d1/92e6df2e503a69df9faab187c684585f0136662c12bb1f36901d426f3fab/packaging-18.0-py2.py3-none-any.whl",
+                    "sha256": "f95a1e147590f204328170981833854229bb2912ac3d5f89e2a8ccd2834800c9"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/0c/91/d68f68ce54cd3e8afa1ef73ea1ad44df2438521b64c0820e5fd9b9f13b7d/pytest-5.2.1-py3-none-any.whl",
+                    "sha256": "7e4800063ccfc306a53c461442526c5571e1462f61583506ce97e4da6a1d88c8"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/b9/54/3673ee8be482f81527678ac894276223b9814bb7262e4f730469bb7bf70e/pytest_cov-2.8.1-py2.py3-none-any.whl",
+                    "sha256": "cdbdef4f870408ebdbfeb44e63e07eb18bb4619fae852f6e760645fa36172626"
+                }
+            ]
+        },
+        {
+            "name": "python3-mypy-extensions",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"mypy-extensions==0.4.3\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/5c/eb/975c7c080f3223a5cdaff09612f3a5221e4ba534f7039db34c35d95fa6a5/mypy_extensions-0.4.3-py2.py3-none-any.whl",
+                    "sha256": "090fedd75945a69ae91ce1303b5824f428daf5a028d2f6ab8a299250a846f15d"
+                }
+            ]
+        },
+        {
+            "name": "python3-typing-extensions",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"typing-extensions==3.10.0.2\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/74/60/18783336cc7fcdd95dae91d73477830aa53f5d3181ae4fe20491d7fc3199/typing_extensions-3.10.0.2-py3-none-any.whl",
+                    "sha256": "f1d25edafde516b146ecd0613dabcc61409817af4766fbbcfb8d1ad4ec441a34"
+                }
+            ]
+        },
+        {
+            "name": "python3-typed-ast",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"typed-ast==1.5.2\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/4a/9c/f35b20518e633f4df40e9e47eb17b92ec122be52153ac0d6f28419489cf1/typed_ast-1.5.2.tar.gz",
+                    "sha256": "525a2d4088e70a9f75b08b3f87a51acc9cde640e19cc523c7e41aa355564ae27"
+                }
+            ]
+        },
+        {
+            "name": "python3-cffi",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"cffi==1.15.0\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/ae/e7/d9c3a176ca4b02024debf82342dab36efadfc5776f9c8db077e8f6e71821/pycparser-2.20-py2.py3-none-any.whl",
+                    "sha256": "7582ad22678f0fcd81102833f60ef8d0e57288b6b5fb00323d101be910e35705"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/00/9e/92de7e1217ccc3d5f352ba21e52398372525765b2e0c4530e6eb2ba9282a/cffi-1.15.0.tar.gz",
+                    "sha256": "920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954"
+                }
+            ]
+        },
+        {
+            "name": "python3-cryptography",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"cryptography==3.4.8\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "only-arches": ["x86_64"],
+                    "url": "https://files.pythonhosted.org/packages/96/07/4d23f8e34e56d8eeb2c37cd5924928a01c3dd756a1d99e470181bc57551e/cryptography-3.4.8-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+                    "sha256": "1eb7bb0df6f6f583dd8e054689def236255161ebbcf62b226454ab9ec663746b"
+                },
+                {
+                    "type": "file",
+                    "only-arches": ["aarch64"],
+                    "url": "https://files.pythonhosted.org/packages/f5/2e/a61d992645593be442b2666252f5d2fceb0777dfd2675a75d8914a353cd3/cryptography-3.4.8-cp36-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+                    "sha256": "34dae04a0dce5730d8eb7894eab617d8a70d0c97da76b905de9efb7128ad7085"
+                }
+            ]
+        },
+        {
+            "name": "python3-toml",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"toml==0.10.2\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl",
+                    "sha256": "806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"
+                }
+            ]
+        },
+        {
+            "name": "python3-sip",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"sip==6.5.1\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/de/c1/9ac5596c10f6ce28abc1849ed1b6299b3953af0b6ff21e227024991a517e/sip-6.5.1.tar.gz",
+                    "sha256": "204f0240db8999a749d638a987b351861843e69239b811ec3d1881412c3706a6"
+                }
+            ]
+        },
+        {
+            "name": "python3-pyinstaller",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pyinstaller==4.10\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/84/3f/1a5c9bef54cac9bf41edd6f4aaf61cd52ed578e10ccc607e0278012cb4a5/altgraph-0.17.2-py2.py3-none-any.whl",
+                    "sha256": "743628f2ac6a7c26f5d9223c91ed8ecbba535f506f4b6f558885a8a56a105857"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/5e/25/cdd74d0e15b43e9ba6d6f5770474d8617514227ada1132ffb2f0f6bb1a63/pyinstaller_hooks_contrib-2022.2-py2.py3-none-any.whl",
+                    "sha256": "7605e440ccb55904cb2a87d72e83642ef176fb7030c77e52ac4d9679bb3d1537"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/b0/e6/e5760666896739115b0e4538a42cdd895215581618ec885ad043dd35ee57/pyinstaller-4.10.tar.gz",
+                    "sha256": "7749c868d2e2dc84df7d6f65437226183c8a366f3a99bb2737785625c3a3cca1"
                 }
             ]
         },
@@ -31,7 +355,7 @@
             "name": "python3-appdirs",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"appdirs==1.4.3\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"appdirs==1.4.3\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -45,7 +369,7 @@
             "name": "python3-certifi",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"certifi==2019.11.28\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"certifi==2019.11.28\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -59,7 +383,7 @@
             "name": "python3-chardet",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"chardet==3.0.4\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"chardet==3.0.4\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -73,7 +397,7 @@
             "name": "python3-decorator",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"decorator==4.4.0\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"decorator==4.4.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -87,7 +411,7 @@
             "name": "python3-idna",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"idna==2.8\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"idna==2.8\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -101,13 +425,13 @@
             "name": "python3-netifaces",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"netifaces==0.10.9\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"netifaces==0.11.0\" --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/0d/18/fd6e9c71a35b67a73160ec80a49da63d1eed2d2055054cc2995714949132/netifaces-0.10.9.tar.gz",
-                    "sha256": "2dee9ffdd16292878336a58d04a20f0ffe95555465fee7c9bd23b3490ef2abf3"
+                    "url": "https://files.pythonhosted.org/packages/a6/91/86a6eac449ddfae239e93ffc1918cf33fd9bab35c04d1e963b311e347a73/netifaces-0.11.0.tar.gz",
+                    "sha256": "043a79146eb2907edf439899f262b3dfe41717d34124298ed281139a8b93ca32"
                 }
             ]
         },
@@ -115,7 +439,7 @@
             "name": "python3-networkx",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"networkx==2.6.2\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"networkx==2.6.2\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -126,59 +450,17 @@
             ]
         },
         {
-            "name": "python3-numpy",
-            "buildsystem": "simple",
-            "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"numpy==1.20.2\" --no-build-isolation"
-            ],
-            "sources": [
-                {
-                    "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/82/a8/1e0f86ae3f13f7ce260e9f782764c16559917f24382c74edfb52149897de/numpy-1.20.2.zip",
-                    "sha256": "878922bf5ad7550aa044aa9301d417e2d3ae50f0f577de92051d739ac6096cee"
-                }
-            ]
-        },
-        {
-            "name": "python3-pytest-runner",
-            "buildsystem": "simple",
-            "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"pytest-runner>=4.4\" --no-build-isolation"
-            ],
-            "sources": [
-                {
-                    "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/f4/f5/6605d73bf3f4c198915872111b10c4b3c2dccd8485f47b7290ceef037190/pytest_runner-5.3.1-py3-none-any.whl",
-                    "sha256": "85f93af814438ee322b4ea08fe3f5c2ad53b253577f3bd84b2ad451fee450ac5"
-                }
-            ]
-        },
-        {
-            "name": "python3-numpy-stl",
-            "buildsystem": "simple",
-            "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"numpy-stl==2.10.1\" --no-build-isolation"
-            ],
-            "sources": [
-                {
-                    "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/a2/08/19caa3c20fd9a486a0a603e329b22578aca7e6f184f0575fcd0980ba3ac5/numpy-stl-2.10.1.tar.gz",
-                    "sha256": "f6b529b8a8112dfe456d4f7697c7aee0aca62be5a873879306afe4b26fca963c"
-                },
-                {
-                    "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/eb/a0/19119d8b7c05be49baf6c593f11c432d571b70d805f2fe94c0585e55e4c8/python_utils-2.3.0-py2.py3-none-any.whl",
-                    "sha256": "e25f840564554eaded56eaa395bca507b0b9e9f0ae5ecb13a8cb785305c56d25"
-                }
-            ]
-        },
-        {
             "name": "python3-pycollada",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"pycollada==0.6\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pycollada==0.6\" --no-build-isolation"
             ],
             "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/c2/a8/a924a09492bdfee8c2ec3094d0a13f2799800b4fdc9c890738aeeb12c72e/numpy-1.21.5.zip",
+                    "sha256": "6a5928bc6241264dce5ed509e66f33676fc97f464e7a919edc672fb5532221ee"
+                },
                 {
                     "type": "file",
                     "url": "https://files.pythonhosted.org/packages/37/7d/70545d16fed218ce781f74def0cffcfdc3fe46d5c64dfe726b082befb83c/pycollada-0.6.tar.gz",
@@ -192,24 +474,10 @@
             ]
         },
         {
-            "name": "python3-PyQt5-sip",
-            "buildsystem": "simple",
-            "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"PyQt5-sip==12.8.1\" --no-build-isolation"
-            ],
-            "sources": [
-                {
-                    "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/73/8c/c662b7ebc4b2407d8679da68e11c2a2eb275f5f2242a92610f6e5024c1f2/PyQt5_sip-12.8.1.tar.gz",
-                    "sha256": "30e944db9abee9cc757aea16906d4198129558533eb7fadbe48c5da2bd18e0bd"
-                }
-            ]
-        },
-        {
             "name": "python3-pyserial",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"pyserial==3.4\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pyserial==3.4\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -223,7 +491,7 @@
             "name": "python3-requests",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"requests==2.22.0\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"requests==2.22.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -242,7 +510,7 @@
             "name": "python3-sentry-sdk",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"sentry-sdk==0.13.5\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"sentry-sdk==0.13.5\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -256,13 +524,32 @@
             "name": "python3-trimesh",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"trimesh==3.2.33\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"trimesh==3.9.36\" --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/a9/7a/c89f04dacdec6f6f3242672d060248247c9f4021b8c544ad378ab1c07065/trimesh-3.2.33.tar.gz",
-                    "sha256": "357c1d2051022fb3b03acba51bbbe45ed79350d6b143dc8622636f4d6f811a34"
+                    "url": "https://files.pythonhosted.org/packages/6b/7a/b39526c2b9323820c04c2ef155c0517af8bd2645312a8f1b2ebcabfe059f/trimesh-3.9.36-py3-none-any.whl",
+                    "sha256": "8ac8bea693b3ee119f11b022fc9b9481c9f1af06cb38bc859bf5d16bbbe49b23"
+                }
+            ]
+        },
+        {
+            "name": "python3-importlib-metadata",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"importlib-metadata==4.10.0\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/92/d9/89f433969fb8dc5b9cbdd4b4deb587720ec1aeb59a020cf15002b9593eef/zipp-3.5.0-py3-none-any.whl",
+                    "sha256": "957cfda87797e389580cb8b9e3870841ca991e2125350677b2ca83a0e99390a3"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/f9/6c/a14560ec00a14f50fdb3e91665563500b55f3c672e621c3ef159d351e9f7/importlib_metadata-4.10.0-py3-none-any.whl",
+                    "sha256": "b7cf7d3fef75f1e4c80a96ca660efbd51473d7e8f39b5ab9210febc7809012a4"
                 }
             ]
         },
@@ -270,7 +557,7 @@
             "name": "python3-jeepney",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"jeepney==0.7.1\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"jeepney==0.7.1\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -284,9 +571,14 @@
             "name": "python3-SecretStorage",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"SecretStorage==3.3.1\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"SecretStorage==3.3.1\" --no-build-isolation"
             ],
             "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/cc/98/8a258ab4787e6f835d350639792527d2eb7946ff9fc0caca9c3f4cf5dcfe/cryptography-3.4.8.tar.gz",
+                    "sha256": "94cc5ed4ceaefcbe5bf38c8fba6a21fc1d365bb8fb826ea1688e3370b2e24a1c"
+                },
                 {
                     "type": "file",
                     "url": "https://files.pythonhosted.org/packages/d9/1e/29cd69fdac7391aa51510dfd42aa70b4e6a826c8cd019ee2a8ab9ec0777f/SecretStorage-3.3.1-py3-none-any.whl",
@@ -298,7 +590,7 @@
             "name": "python3-keyring",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"keyring==23.0.1\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"keyring==23.0.1\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -312,7 +604,7 @@
             "name": "python3-Twisted",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"Twisted==21.2.0\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"Twisted==21.2.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -351,7 +643,7 @@
             "name": "python3-zeroconf",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"zeroconf==0.31.0\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"zeroconf==0.31.0\" --no-build-isolation"
             ],
             "sources": [
                 {
@@ -367,6 +659,68 @@
             ]
         },
         {
+            "name": "python3-pytest-runner",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pytest-runner\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/42/7b/1cec26caae4bf44bb9911e1119d5d1a35171571e100b728a2ccd8719a3b1/pytest_runner-6.0.0-py3-none-any.whl",
+                    "sha256": "4c059cf11cf4306e369c0f8f703d1eaf8f32fad370f41deb5f007044656aca6b"
+                }
+            ]
+        },
+        {
+            "name": "python3-numpy-stl",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"numpy-stl==2.10.1\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/eb/a0/19119d8b7c05be49baf6c593f11c432d571b70d805f2fe94c0585e55e4c8/python_utils-2.3.0-py2.py3-none-any.whl",
+                    "sha256": "e25f840564554eaded56eaa395bca507b0b9e9f0ae5ecb13a8cb785305c56d25"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/a2/08/19caa3c20fd9a486a0a603e329b22578aca7e6f184f0575fcd0980ba3ac5/numpy-stl-2.10.1.tar.gz",
+                    "sha256": "f6b529b8a8112dfe456d4f7697c7aee0aca62be5a873879306afe4b26fca963c"
+                }
+            ]
+        },
+        {
+            "name": "python3-pythran",
+            "buildsystem": "simple",
+            "build-commands": [
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pythran\" --no-build-isolation"
+            ],
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/ae/5a/2fc283c873b9d3f5a612238165756b9e75ac345250f6c1511e0c60c181b5/pythran-0.11.0-py3-none-any.whl",
+                    "sha256": "8fea162e6096c6a3d45613a9a5389db739bf78805e713f853c9fcc7113ab9369"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/cc/4a/af3f1b3d00efd47309b7a0e28351e06453727fa55d9b3a45fd4b91031a63/beniget-0.4.1-py3-none-any.whl",
+                    "sha256": "cb061256631313f9d06031b824f7f403baecaf609b2d3d14d43f23356cf143f2"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/5f/1c/b59500a88c5c3d9d601c5ca62b9df5e0964764472faed82a182958a922c5/gast-0.5.3-py3-none-any.whl",
+                    "sha256": "211aac1e58c167b25d3504998f2db694454a24bb1fb1225bce99420166f21d6a"
+                },
+                {
+                    "type": "file",
+                    "url": "https://files.pythonhosted.org/packages/a3/58/35da89ee790598a0700ea49b2a66594140f44dec458c07e8e3d4979137fc/ply-3.11-py2.py3-none-any.whl",
+                    "sha256": "096f9b8350b65ebd2fd1346b12452efe5b9607f7482813ffca50c22722a807ce"
+                }
+            ]
+        },
+        {
             "name": "python3-scipy",
             "buildsystem": "simple",
             "build-commands": [
@@ -376,8 +730,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://files.pythonhosted.org/packages/fe/fd/8704c7b7b34cdac850485e638346025ca57c5a859934b9aa1be5399b33b7/scipy-1.6.3.tar.gz",
-                    "sha256": "a75b014d3294fce26852a9d04ea27b5671d86736beb34acdfc05859246260707"
+                    "url": "https://files.pythonhosted.org/packages/b4/a2/4faa34bf0cdbefd5c706625f1234987795f368eb4e97bde9d6f46860843e/scipy-1.8.0.tar.gz",
+                    "sha256": "31d4f2d6b724bc9a98e527b5849b8a7e589bf1ea630c33aa563eda912c9ff0bd"
                 },
                 {
                     "type": "file",
@@ -387,16 +741,16 @@
             ]
         },
         {
-            "name": "python3-Shapely",
+            "name": "python3-pyclipper",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"Shapely[vectorized]==1.7.1\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"pyclipper\" --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/42/f3/0e1bc2c4f15e05e30c6b99322b9ddaa2babb3f43bc7df2698efdc1553439/Shapely-1.7.1.tar.gz",
-                    "sha256": "1641724c1055459a7e2b8bbe47ba25bdc89554582e62aec23cb3f3ca25f9b129"
+                    "url": "https://files.pythonhosted.org/packages/c0/20/7e6f631db2ba598ebaa6afd05188aa1557f6ff9af3f47fd963e0bd7ed79b/pyclipper-1.3.0.post2.tar.gz",
+                    "sha256": "c096703dc32f2e4700a1f7054e8b58c29fe86212fa7a2c2adecb0102cb639fb2"
                 }
             ]
         },
@@ -404,13 +758,13 @@
             "name": "python3-lxml",
             "buildsystem": "simple",
             "build-commands": [
-                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=/app \"lxml==4.6.3\" --no-build-isolation"
+                "pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"lxml==4.7.1\" --no-build-isolation"
             ],
             "sources": [
                 {
                     "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/e5/21/a2e4517e3d216f0051687eea3d3317557bde68736f038a3b105ac3809247/lxml-4.6.3.tar.gz",
-                    "sha256": "39b78571b3b30645ac77b95f7c69d1bffc4cf8c3b157c435a34da72e78c82468"
+                    "url": "https://files.pythonhosted.org/packages/84/74/4a97db45381316cd6e7d4b1eb707d7f60d38cb2985b5dfd7251a340404da/lxml-4.7.1.tar.gz",
+                    "sha256": "a1613838aa6b89af4ba10a0f3a972836128801ed008078f8c1244e65958f1b24"
                 }
             ]
         }

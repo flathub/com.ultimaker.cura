@@ -1,7 +1,9 @@
 app-id: com.ultimaker.cura
 runtime: org.kde.Platform
-runtime-version: '5.15-21.08'
+runtime-version: 6.2
 sdk: org.kde.Sdk
+base: com.riverbankcomputing.PyQt.BaseApp
+base-version: 6.2
 finish-args:
   - --share=ipc
   - --socket=x11
@@ -14,6 +16,11 @@ finish-args:
   # To access user files
   - --filesystem=home
 command: cura
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
+build-options:
+  env:
+    - BASEAPP_REMOVE_WEBENGINE=1
 cleanup:
   - /include
   - /lib/cmake
@@ -41,50 +48,14 @@ modules:
       url: https://github.com/xianyi/OpenBLAS/archive/v0.3.13.tar.gz
       sha256: 79197543b17cc314b7e43f7a33148c308b0807cd6381ee77f77e15acf3e6459e
 
-  - name: geos
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DGEOS_ENABLE_TESTS=OFF
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-    sources:
-      - type: archive
-        url: https://download.osgeo.org/geos/geos-3.7.3.tar.bz2
-        sha256: 02035ae4e0ad711fa5a5556d7712530029edacac364b5b9c3ade0ded865fca7e
-
-
-  # Based on https://github.com/Ultimaker/cura-build-environment/blob/4.12/projects/base_requirements.txt
-  - python-modules/base-requirements.json
-
   - name: protobuf
     buildsystem: autotools
     config-opts:
       - --with-zlib=false
     sources:
       - type: archive
-        url: https://github.com/protocolbuffers/protobuf/archive/refs/tags/v3.15.7.tar.gz
-        sha256: efdd6b932a2c0a88a90c4c80f88e4b2e1bf031e7514dbb5a5db5d0bf4f295504
-
-  - name: sip
-    buildsystem: simple
-    build-commands:
-      - python3 configure.py --bindir=/app/bin --destdir=/app/lib/python3.9/site-packages --incdir=/app/include --pyidir=/app/lib/python3.9/site-packages --sipdir=/app/share/sip
-      - make -j${FLATPAK_BUILDER_N_JOBS}
-      - make install
-    sources:
-      - type: archive
-        url: https://www.riverbankcomputing.com/static/Downloads/sip/4.19.25/sip-4.19.25.tar.gz
-        sha256: b39d93e937647807bac23579edbff25fe46d16213f708370072574ab1f1b4211
-
-  - name: pyqt
-    buildsystem: simple
-    build-commands:
-      - python3 configure.py --no-designer-plugin --no-tools --no-qml-plugin --sysroot /app --sip /app/bin/sip --sip-incdir /app/include --confirm-license --assume-shared --disable QtSensors --disable QtSerialPort --disable QtMultimedia --disable QtWebChannel --disable QtLocation -verbose QMAKE_CFLAGS_RELEASE='-I/usr/include/python3.9' QMAKE_CXXFLAGS_RELEASE='-I/usr/include/python3.9'
-      - make -j${FLATPAK_BUILDER_N_JOBS}
-      - make install DESTDIR=/app
-    sources:
-      - type: archive
-        url: https://files.pythonhosted.org/packages/28/6c/640e3f5c734c296a7193079a86842a789edb7988dca39eab44579088a1d1/PyQt5-5.15.2.tar.gz
-        sha256: 372b08dc9321d1201e4690182697c5e7ffb2e0770e6b4a45519025134b12e4fc
+        url: https://github.com/protocolbuffers/protobuf/archive/refs/tags/v3.17.3.tar.gz
+        sha256: c6003e1d2e7fefa78a3039f19f383b4f3a61e81be8c19356f85b6461998ad3db
 
   - name: nlopt
     buildsystem: cmake-ninja
@@ -93,8 +64,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/stevengj/nlopt.git
-        commit: 41967f1981d82d8495c0b27151a126bc35ae0d96
-        tag: v2.6.2
+        commit: 10869df05bbc801e43c90a52fd6975b7bda2ecb8
+        tag: v2.7.0
 
 
   - name: boostheaders
@@ -103,8 +74,8 @@ modules:
       - cp -r boost /app/include/boost
     sources:
       - type: archive
-        url: http://sourceforge.net/projects/boost/files/boost/1.67.0/boost_1_67_0.tar.bz2
-        sha256: 2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba
+        url: https://sourceforge.net/projects/boost/files/boost/1.78.0/boost_1_78_0.tar.bz2
+        sha1: 7ccc47e82926be693810a687015ddc490b49296d
 
   - name: clipper
     buildsystem: cmake-ninja
@@ -121,21 +92,6 @@ modules:
         sha256: 54c430466bcbe745fc85b757c02a63868d26022891cc1b98fb9862e9e20c79fb
         dest-filename: CMakeLists.txt
 
-  - name: libnest2d
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-      - -DCMAKE_CXX_STANDARD=17
-    sources:
-      - type: git
-        url: https://github.com/Ultimaker/libnest2d.git
-        commit: 031e4e61218edd092fbc54fbc6df145287b628ba
-      - type: file
-        url: https://raw.githubusercontent.com/Ultimaker/cura-build-environment/4.12/projects/libnest2d_find_clipper.cmake
-        sha256: 558d26c1071a4cb31c09e618553a3f98de7b782d779989db0582ab5c854a6d5f
-        dest-filename: FindClipper.cmake
-        dest: cmake_modules/
-
   - name: openctm
     buildsystem: simple
     build-commands:
@@ -151,7 +107,7 @@ modules:
 
 
 
-  # Based on https://github.com/Ultimaker/cura-build-environment/blob/4.12/projects/requirements.txt
+  # Based on https://github.com/Ultimaker/cura-build-environment/blob/5.0-linux/projects/requirements.txt
   - python-modules/requirements.json
 
 
@@ -173,13 +129,30 @@ modules:
       - -DBUILD_STATIC=ON
       - -DBUILD_PYTHON=ON
       - -DBUILD_EXAMPLES=OFF
+      - -DPython_VERSION=3.9.9
+      - -DPython_SITELIB_LOCAL=/app/lib/python3.9/site-packages
+    builddir: true
     sources:
       - type: git
         url: https://github.com/ultimaker/libArcus.git
-        commit: 2066a9ddccece8f970902bb5e33147d674627edd
-        tag: 4.13.1
-      - type: patch
-        path: patch/libarcus-python-binindg-install.patch
+        commit: 8ebb24c32302271097080771240620d16147b9c2
+        tag: 5.0
+
+  - name: libnest2d
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_CXX_STANDARD=17
+    sources:
+      - type: git
+        url: https://github.com/Ultimaker/libnest2d.git
+        commit: c9859161f471fbb3d2b611e550abca7561870d07
+        tag: 5.0.0
+      - type: file
+        url: https://raw.githubusercontent.com/Ultimaker/cura-build-environment/4.12/projects/libnest2d_find_clipper.cmake
+        sha256: 558d26c1071a4cb31c09e618553a3f98de7b782d779989db0582ab5c854a6d5f
+        dest-filename: Findclipper.cmake
+        dest: cmake_modules/
 
   - name: pynest2d
     buildsystem: cmake-ninja
@@ -201,21 +174,25 @@ modules:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
       - -DCMAKE_CXX_STANDARD=17
       - -DBUILD_STATIC=ON
+      - -DPython_VERSION=3.9.9
+      - -DPython_SITELIB_LOCAL=/app/lib/python3.9/site-packages
+    builddir: true
     sources:
-      - type: git
-        url: https://github.com/ultimaker/libSavitar.git
-        commit: 68a8868e0b30883b461c0dde77f6e85ce0a4d2ef
-        tag: 4.13.1
-      - type: patch
-        path: patch/libsavitar-python-install.patch
+    - type: git
+      url: https://github.com/ultimaker/libSavitar.git
+      commit: c66d04c00ecb9f014e0bd696732518781276bd3e
+      tag: 5.0.0
 
   - name: libCharon
     buildsystem: cmake-ninja
+    config-opts:
+      - -DPython_VERSION=3.9.9
+      - -DPython_SITELIB_LOCAL=/app/lib/python3.9/site-packages
     sources:
       - type: git
         url: https://github.com/Ultimaker/libCharon
-        commit: 8e255aaad10b09c9cfc6e795f33968fd642e26c9
-        tag: 4.13.0
+        commit: e0f2f53a5357795daf9d44565919a61956ff6f90
+        tag: 5.0.0
 
   - name: cura-engine
     buildsystem: cmake-ninja

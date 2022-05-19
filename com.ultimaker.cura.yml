@@ -185,11 +185,14 @@ modules:
 
   - name: libCharon
     buildsystem: cmake-ninja
+    config-opts:
+      - -DPython_VERSION=3.9.9
+      - -DPython_SITELIB_LOCAL=/app/lib/python3.9/site-packages
     sources:
       - type: git
         url: https://github.com/Ultimaker/libCharon
-        commit: 8e255aaad10b09c9cfc6e795f33968fd642e26c9
-        tag: 4.13.0
+        commit: e0f2f53a5357795daf9d44565919a61956ff6f90
+        tag: 5.0.0
 
   - name: cura-engine
     buildsystem: cmake-ninja

@@ -5,7 +5,6 @@ sdk: org.freedesktop.Sdk
 finish-args:
   - --share=ipc
   - --socket=x11
-  - --device=dri
   # For accessing network printers
   - --share=network
   # For accessing usb printers

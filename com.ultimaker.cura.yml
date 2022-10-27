@@ -44,6 +44,11 @@ modules:
       url: https://github.com/Ultimaker/Cura/releases/download/5.1.1/Ultimaker-Cura-5.1.1-linux-modern.AppImage
       sha256: 09ee5988b86d1246cca23066c58b246054a9dc9a77c935e161c239ff4ce631dd
       dest-filename: Cura.AppImage
+      x-checker-data:
+        type: json
+        url: https://api.github.com/repos/Ultimaker/Cura/releases/latest
+        version-query: .tag_name
+        url-query: .assets[] | select(.name|match("Ultimaker-Cura.*-linux-modern\\.AppImage$")) | .browser_download_url
     - type: file
       path: com.ultimaker.cura.appdata.xml
     - type: script

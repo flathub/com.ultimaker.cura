@@ -29,30 +29,27 @@ modules:
 
       # Move things into place
       - mv squashfs-root/* /app
-      - install -Dm644 /app/cura.desktop 
-        /app/share/applications/com.ultimaker.cura.desktop
-      - install -Dm644 /app/cura-icon.png 
-        /app/share/icons/hicolor/256x256/apps/com.ultimaker.cura.png
-      - install -Dm644 com.ultimaker.cura.appdata.xml
-        /app/share/appdata/com.ultimaker.cura.appdata.xml
-      - install -Dm 544 start-cura-flatpak.sh
-        /app/bin/start-cura-flatpak.sh
+      - install -Dm644 /app/cura.desktop /app/share/applications/com.ultimaker.cura.desktop
+      - install -Dm644 /app/cura-icon.png /app/share/icons/hicolor/256x256/apps/com.ultimaker.cura.png
+      - install -Dm644 com.ultimaker.cura.appdata.xml /app/share/appdata/com.ultimaker.cura.appdata.xml
+      - install -Dm 544 start-cura-flatpak.sh /app/bin/start-cura-flatpak.sh
       - rm /app/cura.desktop /app/cura-icon.png /app/cura.appdata.xml
 
     sources:
-    - type: file
-      url: https://github.com/Ultimaker/Cura/releases/download/5.1.1/Ultimaker-Cura-5.1.1-linux-modern.AppImage
-      sha256: 09ee5988b86d1246cca23066c58b246054a9dc9a77c935e161c239ff4ce631dd
-      dest-filename: Cura.AppImage
-      x-checker-data:
-        type: json
-        url: https://api.github.com/repos/Ultimaker/Cura/releases/latest
-        version-query: .tag_name
-        url-query: .assets[] | select(.name|match("Ultimaker-Cura.*-linux-modern\\.AppImage$")) | .browser_download_url
-    - type: file
-      path: com.ultimaker.cura.appdata.xml
-    - type: script
-      dest-filename: start-cura-flatpak.sh
-      commands:
-        - unset QT_STYLE_OVERRIDE
-        - /app/AppRun "$@"
+      - type: file
+        url: https://github.com/Ultimaker/Cura/releases/download/5.2.1/Ultimaker-Cura-5.2.1-linux-modern.AppImage
+        sha256: d110ca8e62efd5e7c647afd5374127c7b8e2b80f4308a6e83686957476465d38
+        dest-filename: Cura.AppImage
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/Ultimaker/Cura/releases/latest
+          version-query: .tag_name
+          url-query: .assets[] | select(.name|match("Ultimaker-Cura.*-linux-modern\\.AppImage$"))
+            | .browser_download_url
+      - type: file
+        path: com.ultimaker.cura.appdata.xml
+      - type: script
+        dest-filename: start-cura-flatpak.sh
+        commands:
+          - unset QT_STYLE_OVERRIDE
+          - /app/AppRun "$@"

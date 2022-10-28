@@ -31,9 +31,10 @@
   <url type="homepage">https://ultimaker.com/software/ultimaker-cura?utm_source=cura&amp;utm_medium=software&amp;utm_campaign=cura-update-linux</url>
   <translation type="gettext">Cura</translation>
   <releases>
+    <release version="5.2.1" date="2022-10-19"/>
     <release version="5.1.1" date="2022-09-13"/>
     <release version="5.1.0" date="2022-07-19"/>
     <release version="4.13.1" date="2022-01-28"/>
   </releases>
-  <content_rating type="oars-1.1" />
+  <content_rating type="oars-1.1"/>
 </component>

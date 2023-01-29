@@ -37,8 +37,8 @@ modules:
 
     sources:
       - type: file
-        url: https://github.com/Ultimaker/Cura/releases/download/5.2.1/Ultimaker-Cura-5.2.1-linux-modern.AppImage
-        sha256: d110ca8e62efd5e7c647afd5374127c7b8e2b80f4308a6e83686957476465d38
+        url: https://github.com/Ultimaker/Cura/releases/download/5.2.2/UltiMaker-Cura-5.2.2-linux-modern.AppImage
+        sha256: 193311ac687ed8d46d764a9ca037e36600e3215bfd919845a54e7eff061612e7
         dest-filename: Cura.AppImage
         x-checker-data:
           type: json

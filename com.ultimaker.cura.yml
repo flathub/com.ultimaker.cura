@@ -44,7 +44,7 @@ modules:
           type: json
           url: https://api.github.com/repos/Ultimaker/Cura/releases/latest
           version-query: .tag_name
-          url-query: .assets[] | select(.name|match("Ultimaker-Cura.*-linux-modern\\.AppImage$"))
+          url-query: .assets[] | select(.name|match("Ulti[mM]aker-Cura.*-linux-modern\\.AppImage$"))
             | .browser_download_url
       - type: file
         path: com.ultimaker.cura.appdata.xml

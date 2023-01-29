@@ -12,6 +12,10 @@ finish-args:
   - --device=all
   # To access user files
   - --filesystem=home
+  # To access SD-Cards
+  - --filesystem=/media
+  # For umount
+  - --system-talk-name=org.freedesktop.UDisks2
 command: start-cura-flatpak.sh
 modules:
   - name: cura
@@ -35,6 +39,9 @@ modules:
       - install -Dm644 com.ultimaker.cura.appdata.xml /app/share/appdata/com.ultimaker.cura.appdata.xml
       - install -Dm 544 start-cura-flatpak.sh /app/bin/start-cura-flatpak.sh
 
+      # Umount wrapper used to redirect umount calls to udisk2
+      - install umount /app/bin
+
     sources:
       - type: file
         url: https://github.com/Ultimaker/Cura/releases/download/5.2.2/UltiMaker-Cura-5.2.2-linux-modern.AppImage
@@ -52,3 +59,5 @@ modules:
         dest-filename: start-cura-flatpak.sh
         commands:
           - /app/cura/AppRun "$@"
+      - type: file
+        path: umount

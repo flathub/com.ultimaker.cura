@@ -14,6 +14,7 @@ finish-args:
   - --filesystem=home
   # To access SD-Cards
   - --filesystem=/media
+  - --filesystem=/run/media
   # For umount
   - --system-talk-name=org.freedesktop.UDisks2
 command: start-cura-flatpak.sh

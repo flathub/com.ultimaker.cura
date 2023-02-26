@@ -17,8 +17,6 @@ finish-args:
   - --filesystem=/run/media
   # For umount
   - --system-talk-name=org.freedesktop.UDisks2
-  # For wayland support
-  - --env=QT_QPA_PLATFORM=xcb
 command: start-cura-flatpak.sh
 modules:
   - name: cura

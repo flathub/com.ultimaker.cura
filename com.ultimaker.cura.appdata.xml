@@ -31,6 +31,7 @@
   <url type="homepage">https://ultimaker.com/software/ultimaker-cura?utm_source=cura&amp;utm_medium=software&amp;utm_campaign=cura-update-linux</url>
   <translation type="gettext">Cura</translation>
   <releases>
+    <release version="5.4.0" date="2023-07-04"/>
     <release version="5.3.1" date="2023-04-19"/>
     <release version="5.3.0" date="2023-03-07"/>
     <release version="5.2.2" date="2023-01-24"/>

@@ -5,7 +5,7 @@ sdk: org.freedesktop.Sdk
 finish-args:
   - --share=ipc
   - --socket=wayland
-  - --socket=fallback-x11
+  - --socket=x11
   # For accessing network printers
   - --share=network
   # For accessing usb printers
@@ -33,7 +33,8 @@ modules:
       - sed -i -e 's/Exec.*/Exec=start-cura-flatpak.sh %F/' squashfs-root/cura.desktop
 
       # Move things into place
-      - cp -r squashfs-root/* /app
+      - mkdir /app/cura
+      - cp -r squashfs-root/* /app/cura
       - install -Dm644 squashfs-root/cura.desktop /app/share/applications/com.ultimaker.cura.desktop
       - install -Dm644 squashfs-root/cura-icon.png /app/share/icons/hicolor/256x256/apps/com.ultimaker.cura.png
       - install -Dm644 com.ultimaker.cura.appdata.xml /app/share/appdata/com.ultimaker.cura.appdata.xml
@@ -58,6 +59,6 @@ modules:
       - type: script
         dest-filename: start-cura-flatpak.sh
         commands:
-          - /app/AppRun "$@"
+          - /app/cura/AppRun "$@"
       - type: file
         path: umount

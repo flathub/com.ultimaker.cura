@@ -1,6 +1,6 @@
 app-id: com.ultimaker.cura
 runtime: org.freedesktop.Platform
-runtime-version: '22.08'
+runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 finish-args:
   - --share=ipc
@@ -29,14 +29,14 @@ modules:
       - rm ./Cura.AppImage
 
       # Patch .destop file with the new icon and binary location
-      - sed -i -e 's/Icon.*/Icon=com.ultimaker.cura/' squashfs-root/cura.desktop
-      - sed -i -e 's/Exec.*/Exec=start-cura-flatpak.sh %F/' squashfs-root/cura.desktop
+      - sed -i -e 's/Icon.*/Icon=com.ultimaker.cura/' squashfs-root/com.ultimaker.cura.desktop
+      - sed -i -e 's/Exec.*/Exec=start-cura-flatpak.sh %F/' squashfs-root/com.ultimaker.cura.desktop
 
       # Move things into place
       - mkdir /app/cura
       - cp -r squashfs-root/* /app/cura
-      - install -Dm644 squashfs-root/cura.desktop /app/share/applications/com.ultimaker.cura.desktop
-      - install -Dm644 squashfs-root/cura-icon.png /app/share/icons/hicolor/256x256/apps/com.ultimaker.cura.png
+      - install -Dm644 squashfs-root/com.ultimaker.cura.desktop /app/share/applications/com.ultimaker.cura.desktop
+      - install -Dm644 squashfs-root/cura-icon.svg /app/share/icons/hicolor/scalable/apps/com.ultimaker.cura.svg
       - install -Dm644 com.ultimaker.cura.appdata.xml /app/share/appdata/com.ultimaker.cura.appdata.xml
       - install -Dm 544 start-cura-flatpak.sh /app/bin/start-cura-flatpak.sh
 
@@ -45,14 +45,14 @@ modules:
 
     sources:
       - type: file
-        url: https://github.com/Ultimaker/Cura/releases/download/5.4.0/UltiMaker-Cura-5.4.0-linux-modern.AppImage
-        sha256: 415bfb5a47e8d3cd8f1fa9faae9b01efdb2ddb12b6f8da7d8af060fcf61977be
+        url: https://github.com/Ultimaker/Cura/releases/download/5.5.0/UltiMaker-Cura-5.5.0-linux-X64.AppImage
+        sha256: 106e4b3220c55125c56ed461775e5e80f91ba75da4129d9375474bb2c4b2ec98
         dest-filename: Cura.AppImage
         x-checker-data:
           type: json
           url: https://api.github.com/repos/Ultimaker/Cura/releases/latest
           version-query: .tag_name
-          url-query: .assets[] | select(.name|match("Ulti[mM]aker-Cura.*-linux-modern\\.AppImage$"))
+          url-query: .assets[] | select(.name|match("Ulti[mM]aker-Cura.*-linux-X64\\.AppImage$"))
             | .browser_download_url
       - type: file
         path: com.ultimaker.cura.appdata.xml

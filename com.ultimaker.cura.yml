@@ -59,6 +59,7 @@ modules:
       - type: script
         dest-filename: start-cura-flatpak.sh
         commands:
+          - unset QT_STYLE_OVERRIDE 
           - /app/cura/AppRun "$@"
       - type: file
         path: umount

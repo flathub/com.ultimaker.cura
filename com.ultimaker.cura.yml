@@ -45,8 +45,8 @@ modules:
 
     sources:
       - type: file
-        url: https://github.com/Ultimaker/Cura/releases/download/5.6.0/UltiMaker-Cura-5.6.0-linux-X64.AppImage
-        sha256: 107896a0da4b2873f3bfaad9aed36012bef2fff89571161e57f4da0a7f10a440
+        url: https://github.com/Ultimaker/Cura/releases/download/5.7.0/UltiMaker-Cura-5.7.0-linux-X64.AppImage
+        sha256: e4f68184f24aa9af0bc441d344d4cbaa47087c2d8f92a9935b1f5cd7e75cee4d
         dest-filename: Cura.AppImage
         x-checker-data:
           type: json
@@ -59,7 +59,7 @@ modules:
       - type: script
         dest-filename: start-cura-flatpak.sh
         commands:
-          - unset QT_STYLE_OVERRIDE 
+          - unset QT_STYLE_OVERRIDE
           - /app/cura/AppRun "$@"
       - type: file
         path: umount

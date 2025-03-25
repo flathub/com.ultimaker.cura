@@ -20,8 +20,11 @@
   <translation type="gettext">Cura</translation>
   <launchable type="desktop-id">com.ultimaker.cura.desktop</launchable>
   <releases>
-    <release version="5.9.1" date="2025-02-19">
+    <release version="5.10.0" date="2025-03-24">
       <description></description>
+    </release>
+    <release version="5.9.1" date="2025-02-19">
+      <description/>
     </release>
     <release version="5.9.0" date="2024-11-18">
       <description/>

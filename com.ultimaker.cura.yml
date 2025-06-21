@@ -60,6 +60,6 @@ modules:
         dest-filename: start-cura-flatpak.sh
         commands:
           - unset QT_STYLE_OVERRIDE
-          - /app/cura/AppRun "$@"
+          - /app/cura/AppRun -platformtheme gtk3 "$@"
       - type: file
         path: umount

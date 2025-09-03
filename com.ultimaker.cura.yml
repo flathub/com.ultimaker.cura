@@ -1,6 +1,6 @@
 app-id: com.ultimaker.cura
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 finish-args:
   - --share=ipc

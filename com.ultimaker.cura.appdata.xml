@@ -20,8 +20,12 @@
   <translation type="gettext">Cura</translation>
   <launchable type="desktop-id">com.ultimaker.cura.desktop</launchable>
   <releases>
-    <release version="5.13.0" date="2026-05-28">
+    <release version="5.14.0" date="2026-11-05">
+      <url type="details">https://github.com/Ultimaker/Cura/releases/tag/5.14.0</url>
       <description></description>
+    </release>
+    <release version="5.13.0" date="2026-05-28">
+      <description/>
     </release>
     <release version="5.12.1" date="2026-04-09">
       <description/>

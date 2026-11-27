@@ -17,6 +17,10 @@ finish-args:
   - --filesystem=/run/media
   # For umount
   - --system-talk-name=org.freedesktop.UDisks2
+  # Upstream defaults to X11, use Wayland only when there is no X server.
+  # Opt in to native Wayland (sharp on scaled displays) with:
+  # flatpak override --user --env=QT_QPA_PLATFORM=wayland com.ultimaker.cura
+  - --env=QT_QPA_PLATFORM=xcb;wayland
 command: start-cura-flatpak.sh
 modules:
   - name: cura
@@ -31,6 +35,13 @@ modules:
       # Patch .destop file with the new icon and binary location
       - sed -i -e 's/Icon.*/Icon=com.ultimaker.cura/' squashfs-root/com.ultimaker.cura.desktop
       - sed -i -e 's/Exec.*/Exec=start-cura-flatpak.sh %F/' squashfs-root/com.ultimaker.cura.desktop
+
+      # Use the runtime's libwayland. The bundled one is too old for the runtime's
+      # Mesa, so EGL fails on Wayland: https://github.com/Ultimaker/Cura/issues/19303
+      - rm -f squashfs-root/libwayland-client.so* squashfs-root/libwayland-egl.so* squashfs-root/libwayland-cursor.so*
+
+      # Move the X11 default from AppRun.env to finish-args, so it can be overridden
+      - sed -i -e '/^QT_QPA_PLATFORM=/d' squashfs-root/AppRun.env
 
       # Move things into place
       - mkdir /app/cura
